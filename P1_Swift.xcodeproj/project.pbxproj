@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D410DD2724D7C46D0094A68A /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410DD2624D7C46D0094A68A /* HostView.swift */; };
 		D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1824D7974400C74476 /* AppDelegate.swift */; };
 		D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1A24D7974400C74476 /* SceneDelegate.swift */; };
 		D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1C24D7974400C74476 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D410DD2624D7C46D0094A68A /* HostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
 		D44EEC1524D7974400C74476 /* P1_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P1_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44EEC1824D7974400C74476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44EEC1A24D7974400C74476 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D410DD2524D7C45A0094A68A /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				D410DD2624D7C46D0094A68A /* HostView.swift */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
 		D44EEC0C24D7974400C74476 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		D44EEC1724D7974400C74476 /* P1_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				D410DD2524D7C45A0094A68A /* Host */,
 				D44EEC1824D7974400C74476 /* AppDelegate.swift */,
 				D44EEC1A24D7974400C74476 /* SceneDelegate.swift */,
 				D44EEC1C24D7974400C74476 /* ContentView.swift */,
@@ -148,6 +159,7 @@
 			files = (
 				D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */,
 				D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */,
+				D410DD2724D7C46D0094A68A /* HostView.swift in Sources */,
 				D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +306,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnju.P1-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = P1_Swift;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -314,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnju.P1-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = P1_Swift;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
