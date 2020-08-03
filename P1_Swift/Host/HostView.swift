@@ -9,46 +9,48 @@
 import SwiftUI
 
 struct HostView: View {
-    @State private var isShowModal: Bool = false
+    //    @State private var isShowModal: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    var brands: [String] = ["Apple", "Balmuda", "Bodyfriend", "Cartier", "dyson", "Wesco", "vitra."]
     
     var body: some View {
         
-        NavigationView {
-            List {
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack {
-                    Image("Proto_Host_list1")
-                }
-                HStack(spacing: 50) {
+        VStack {
+            NavigationView {
+                List {
+
+                    ForEach(brands, id: \.self) { brand in
+                        HStack(spacing: 10) {
+                            
+                            Image(brand)
+                                .frame(width: 115.0, height: 50)
+                            
+                            Text(brand)
+                        }
+                    }
                     
-                    Image("Proto_Host_logo1")
-                        .padding(10)
+                }
+                .navigationBarTitle(Text("제휴브랜드 목록"), displayMode: .inline)
+                .navigationBarItems(trailing: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("닫기")
+                        .foregroundColor(Color.black)
+                })
+            }
+            
+            VStack(alignment: .leading) {
+                Button(action: {
                     
-                    
-                    Text("Apple")
+                }){
+                    Text("찾으시는 브랜드가 없으신가요?\n")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, minHeight: 80)
                 }
             }
-            .navigationBarTitle(Text("제휴브랜드 목록"), displayMode: .inline)
-            
+            .background(Color.black)
         }
-        
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
