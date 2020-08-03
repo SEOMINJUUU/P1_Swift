@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D410DD2724D7C46D0094A68A /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410DD2624D7C46D0094A68A /* HostView.swift */; };
+		D410DD2A24D7D32C0094A68A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410DD2924D7D32C0094A68A /* LoginView.swift */; };
 		D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1824D7974400C74476 /* AppDelegate.swift */; };
 		D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1A24D7974400C74476 /* SceneDelegate.swift */; };
 		D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EEC1C24D7974400C74476 /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		D410DD2624D7C46D0094A68A /* HostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
+		D410DD2924D7D32C0094A68A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D44EEC1524D7974400C74476 /* P1_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P1_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44EEC1824D7974400C74476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D44EEC1A24D7974400C74476 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 			path = Host;
 			sourceTree = "<group>";
 		};
+		D410DD2824D7D3080094A68A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D410DD2924D7D32C0094A68A /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		D44EEC0C24D7974400C74476 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 				D410DD2524D7C45A0094A68A /* Host */,
 				D44EEC1824D7974400C74476 /* AppDelegate.swift */,
 				D44EEC1A24D7974400C74476 /* SceneDelegate.swift */,
+				D410DD2824D7D3080094A68A /* Login */,
 				D44EEC1C24D7974400C74476 /* ContentView.swift */,
 				D44EEC1E24D7974600C74476 /* Assets.xcassets */,
 				D44EEC2324D7974600C74476 /* LaunchScreen.storyboard */,
@@ -160,6 +171,7 @@
 				D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */,
 				D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */,
 				D410DD2724D7C46D0094A68A /* HostView.swift in Sources */,
+				D410DD2A24D7D32C0094A68A /* LoginView.swift in Sources */,
 				D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
