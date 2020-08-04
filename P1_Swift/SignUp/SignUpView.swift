@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
 struct SignUpView: View {
     
     @State var password: String = "";
@@ -41,8 +47,10 @@ struct SignUpView: View {
                         .font(.system(size: 18))
                         .fontWeight(.bold)
                     HStack {
-                        TextField("6자리 이상 입력해주세요.", text: $password)
-                            .font(.subheadline)
+                        SecureField("6자리 이상 입력해주세요.", text: $password){
+                            UIApplication.shared.endEditing()
+                        }
+                        .font(.subheadline)
                         Image(systemName: "checkmark.circle")
                             .font(Font.body.weight(.bold))
                             .foregroundColor(Color.green)
@@ -58,8 +66,10 @@ struct SignUpView: View {
                         .font(.system(size: 18))
                         .fontWeight(.bold)
                     HStack {
-                        TextField("다시 한번 입력해주세요.", text: $password)
-                            .font(.subheadline)
+                        SecureField("다시 한번 입력해주세요.", text: $password_repeat){
+                            UIApplication.shared.endEditing()
+                        }
+                        .font(.subheadline)
                         Image(systemName: "checkmark.circle")
                             .font(Font.body.weight(.bold))
                             .foregroundColor(Color.green)
@@ -80,7 +90,7 @@ struct SignUpView: View {
                 
                 Spacer()
                 
-            }.navigationBarTitle("회원가입", displayMode: .inline)
+            }.navigationBarTitle(Text("회원가입"), displayMode: .inline)
                 .padding(20)
         }
     }
@@ -91,3 +101,4 @@ struct SignUpView_Previews: PreviewProvider {
         SignUpView()
     }
 }
+
