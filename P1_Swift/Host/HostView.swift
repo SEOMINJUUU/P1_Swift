@@ -18,7 +18,7 @@ struct HostView: View {
         VStack {
             NavigationView {
                 List {
-
+                    
                     ForEach(brands, id: \.self) { brand in
                         HStack(spacing: 10) {
                             
@@ -38,17 +38,9 @@ struct HostView: View {
                         .foregroundColor(Color.black)
                 })
             }
-            
             VStack(alignment: .leading) {
-                Button(action: {
-                    
-                }){
-                    Text("찾으시는 브랜드가 없으신가요?\n")
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, minHeight: 80)
-                }
+                NotAffiliatedBrand()
             }
-            .background(Color.black)
         }
         .edgesIgnoringSafeArea(.bottom)
     }
@@ -57,5 +49,21 @@ struct HostView: View {
 struct HostView_Previews: PreviewProvider {
     static var previews: some View {
         HostView()
+    }
+}
+
+struct NotAffiliatedBrand: View {
+    
+    var body: some View {
+        
+        Button(action: {
+            
+        }){
+            Text("찾으시는 브랜드가 없으신가요?\n")
+                .foregroundColor(Color.white)
+                .frame(maxWidth: .infinity, minHeight: 80)
+                .background(Color.black)
+        }
+        
     }
 }
