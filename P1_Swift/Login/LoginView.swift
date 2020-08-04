@@ -52,13 +52,7 @@ struct LoginView: View {
                     
                 }) {
                     Text("계속하기")
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity, minHeight: 45)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.blue, lineWidth: 1)
-                    )
-                }.padding(.vertical, 10)
+                }.buttonStyle(EmptyBlueButtonStyle())
                 
                 HStack {
                     Spacer()
@@ -137,3 +131,17 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+
+struct EmptyBlueButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.subheadline).foregroundColor(Color.blue)
+            .frame(maxWidth: .infinity, minHeight: 45)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.blue, lineWidth: 1)
+        )
+            .padding(.vertical, 10)
+    }
+}
+
