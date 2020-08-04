@@ -39,7 +39,7 @@ struct LocationSettingView: View {
                 Image("buildings")
                 
                 
-            }.navigationBarTitle("내 동네 설정하기", displayMode: .inline)
+            }.navigationBarTitle(Text("내 동네 설정하기"), displayMode: .inline)
                 
                 .edgesIgnoringSafeArea(.bottom)
             

@@ -46,7 +46,7 @@ struct CertificationView: View {
                     
                 }.padding(20)
                 
-            }.navigationBarTitle("동네 인증하기", displayMode: .inline)
+            }.navigationBarTitle(Text("동네 인증하기"), displayMode: .inline)
         }
         
     }
