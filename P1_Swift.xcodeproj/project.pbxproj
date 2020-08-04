@@ -19,6 +19,7 @@
 		D44EEC2524D7974600C74476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44EEC2324D7974600C74476 /* LaunchScreen.storyboard */; };
 		D4706A5424D8F1540006335F /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4706A5324D8F1540006335F /* LocationSettingView.swift */; };
 		D4706A5924D91E650006335F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4706A5824D91E650006335F /* SignUpView.swift */; };
+		D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D44EEC2624D7974600C74476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4706A5324D8F1540006335F /* LocationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
 		D4706A5824D91E650006335F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		D44EEC1724D7974400C74476 /* P1_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				D4706A5D24D9201D0006335F /* Write */,
 				D4706A5724D91E070006335F /* SignUp */,
 				D410DD2524D7C45A0094A68A /* Host */,
 				D44EEC1824D7974400C74476 /* AppDelegate.swift */,
@@ -123,6 +126,22 @@
 				D4706A5824D91E650006335F /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		D4706A5D24D9201D0006335F /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				D4706A5E24D920240006335F /* Affiliate */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		D4706A5E24D920240006335F /* Affiliate */ = {
+			isa = PBXGroup;
+			children = (
+				D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */,
+			);
+			path = Affiliate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */,
+				D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */,
 				D410DD2D24D7EAA10094A68A /* MapView.swift in Sources */,
 				D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */,
 				D410DD2F24D7F8B00094A68A /* CertificationView.swift in Sources */,
@@ -352,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnju.P1-Swift";
 				PRODUCT_NAME = P1_Swift;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnju.P1-Swift";
 				PRODUCT_NAME = P1_Swift;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
