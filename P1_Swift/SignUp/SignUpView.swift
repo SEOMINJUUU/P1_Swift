@@ -1,5 +1,5 @@
 //
-//  SignupView.swift
+//  SignUpView.swift
 //  P1_Swift
 //
 //  Created by 서민주 on 2020/08/04.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SignupView: View {
+struct SignUpView: View {
     
     @State var password: String = "";
     @State var password_repeat: String = "";
@@ -86,8 +86,8 @@ struct SignupView: View {
     }
 }
 
-struct SignupView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignupView()
+        SignUpView()
     }
 }
