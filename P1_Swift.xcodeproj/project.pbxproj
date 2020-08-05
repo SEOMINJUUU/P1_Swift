@@ -19,6 +19,8 @@
 		D44EEC2524D7974600C74476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44EEC2324D7974600C74476 /* LaunchScreen.storyboard */; };
 		D4706A5424D8F1540006335F /* LocationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4706A5324D8F1540006335F /* LocationSettingView.swift */; };
 		D4706A5924D91E650006335F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4706A5824D91E650006335F /* SignUpView.swift */; };
+		D48FFADD24DA3BE300B1683A /* AffiliateItemRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFADC24DA3BE300B1683A /* AffiliateItemRegistrationView.swift */; };
+		D48FFAE024DA3CE300B1683A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFADF24DA3CE300B1683A /* HomeView.swift */; };
 		D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		D44EEC2624D7974600C74476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4706A5324D8F1540006335F /* LocationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingView.swift; sourceTree = "<group>"; };
 		D4706A5824D91E650006335F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		D48FFADC24DA3BE300B1683A /* AffiliateItemRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateItemRegistrationView.swift; sourceTree = "<group>"; };
+		D48FFADF24DA3CE300B1683A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +58,7 @@
 		D410DD2524D7C45A0094A68A /* Host */ = {
 			isa = PBXGroup;
 			children = (
+				D4706A5E24D920240006335F /* Affiliate */,
 				D410DD2624D7C46D0094A68A /* HostView.swift */,
 			);
 			path = Host;
@@ -96,7 +101,7 @@
 		D44EEC1724D7974400C74476 /* P1_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				D4706A5D24D9201D0006335F /* Write */,
+				D48FFADE24DA3CD600B1683A /* Home */,
 				D4706A5724D91E070006335F /* SignUp */,
 				D410DD2524D7C45A0094A68A /* Host */,
 				D44EEC1824D7974400C74476 /* AppDelegate.swift */,
@@ -128,20 +133,21 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		D4706A5D24D9201D0006335F /* Write */ = {
-			isa = PBXGroup;
-			children = (
-				D4706A5E24D920240006335F /* Affiliate */,
-			);
-			path = Write;
-			sourceTree = "<group>";
-		};
 		D4706A5E24D920240006335F /* Affiliate */ = {
 			isa = PBXGroup;
 			children = (
 				D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */,
+				D48FFADC24DA3BE300B1683A /* AffiliateItemRegistrationView.swift */,
 			);
 			path = Affiliate;
+			sourceTree = "<group>";
+		};
+		D48FFADE24DA3CD600B1683A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D48FFADF24DA3CE300B1683A /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,10 +225,12 @@
 				D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */,
 				D410DD2D24D7EAA10094A68A /* MapView.swift in Sources */,
 				D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */,
+				D48FFADD24DA3BE300B1683A /* AffiliateItemRegistrationView.swift in Sources */,
 				D410DD2F24D7F8B00094A68A /* CertificationView.swift in Sources */,
 				D410DD2724D7C46D0094A68A /* HostView.swift in Sources */,
 				D4706A5924D91E650006335F /* SignUpView.swift in Sources */,
 				D410DD2A24D7D32C0094A68A /* LoginView.swift in Sources */,
+				D48FFAE024DA3CE300B1683A /* HomeView.swift in Sources */,
 				D4706A5424D8F1540006335F /* LocationSettingView.swift in Sources */,
 				D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */,
 			);
