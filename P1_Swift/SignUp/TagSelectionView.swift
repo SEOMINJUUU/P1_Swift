@@ -51,7 +51,7 @@ struct TagSelectionView: View {
                         }
                         
                         HStack(spacing: 10) {
-                            TagCapsule(tag: tagList[totalTagCount - 1])
+                            TagCapsuleWithIcon(tag: tagList[totalTagCount - 1])
                         }
                         .padding(.horizontal)
                     }
@@ -91,14 +91,14 @@ struct TagRow: View {
     var body: some View {
         HStack(spacing: 10) {
             
-            TagCapsule(tag: leftTag)
-            TagCapsule(tag: rightTag)
+            TagCapsuleWithIcon(tag: leftTag)
+            TagCapsuleWithIcon(tag: rightTag)
             
         }.padding(.horizontal)
     }
 }
 
-struct TagCapsule: View {   // TODO: selected tagCapsule color
+struct TagCapsuleWithIcon: View {   // TODO: selected tagCapsule color
     
     var tag:(icon: String, label: String)
     
