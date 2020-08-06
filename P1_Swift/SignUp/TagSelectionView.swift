@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct TagSelectionView: View {
-    @Environment(\.presentationMode) var presentationMode
+    
+    @State var isShowModal: Bool = false
     
     var tagCount: Int = 0
     let totalTagCount: Int = 11
@@ -22,45 +23,57 @@ struct TagSelectionView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
-                Spacer()
+            
+            ZStack {
                 
-                Text("\(tagCount)")
-                    .font(.largeTitle)
-                Text("최소 5개 이상의 태그를 선택해주세요 :)")
-                    .font(.subheadline)
-                
-                ZStack(alignment: .leading) {
-                    Rectangle()
-                        .frame(height: 3)
-                        .foregroundColor(Color.init(UIColor.systemGray5))
-                    Rectangle()
-                        .frame(width: 50, height: 3)
-                        .foregroundColor(Color.init(UIColor.systemBlue))
-                }.padding(.vertical)
-                
-                
-                VStack(spacing: 20) {
+                VStack(spacing: 10) {
+                    Spacer()
                     
-                    ForEach(0 ..< totalTagCount / 2) { idx in
-                        TagRow(leftTag: self.tagList[idx * 2], rightTag: self.tagList[idx * 2 + 1])
-                    }
+                    Text("\(tagCount)")
+                        .font(.largeTitle)
+                    Text("최소 5개 이상의 태그를 선택해주세요 :)")
+                        .font(.subheadline)
                     
-                    HStack(spacing: 10) {
-                        TagCapsule(tag: tagList[totalTagCount - 1])
+                    ZStack(alignment: .leading) {
+                        Rectangle()
+                            .frame(height: 3)
+                            .foregroundColor(Color.init(UIColor.systemGray5))
+                        Rectangle()
+                            .frame(width: 50, height: 3)
+                            .foregroundColor(Color.init(UIColor.systemBlue))
+                    }.padding(.vertical)
+                    
+                    
+                    VStack(spacing: 20) {
+                        
+                        ForEach(0 ..< totalTagCount / 2) { idx in
+                            TagRow(leftTag: self.tagList[idx * 2], rightTag: self.tagList[idx * 2 + 1])
+                        }
+                        
+                        HStack(spacing: 10) {
+                            TagCapsule(tag: tagList[totalTagCount - 1])
+                        }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
+                    Spacer()
+                    Spacer()
+                    
+                    
+                    
+                } .navigationBarTitle(Text("회원가입"), displayMode: .inline)
+                    .navigationBarItems(trailing: Button(action: {
+                        self.isShowModal = true
+                    }) {
+                        Text("건너뛰기")
+                            .foregroundColor(Color.init(UIColor.appColor(.darkGrayColor)))
+                    })
+                
+                if $isShowModal.wrappedValue {
+                    GeometryReader{_ in
+                        CustomModalPopups()
+                    }
                 }
-                Spacer()
-                Spacer()
-                
-            } .navigationBarTitle(Text("회원가입"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("건너뛰기")
-                        .foregroundColor(Color.init(UIColor.appColor(.darkGrayColor)))
-                })
+            }
         }
     }
 }
@@ -85,7 +98,7 @@ struct TagRow: View {
     }
 }
 
-struct TagCapsule: View {
+struct TagCapsule: View {   // TODO: selected tagCapsule color
     
     var tag:(icon: String, label: String)
     
@@ -95,7 +108,6 @@ struct TagCapsule: View {
             Image(systemName: tag.icon)
                 .foregroundColor(Color.init(UIColor.systemBlue))
                 .padding(.leading, 10)
-            
             
             Spacer()
             
@@ -111,7 +123,49 @@ struct TagCapsule: View {
     }
 }
 
-func calcWidth(leftLabel: String, rightLabel: String) -> (left: Double, right: Double) {
+struct CustomModalPopups: View {
+    @State private var isShowModal = true
     
-    return (0,0)
+    var body: some View {
+        
+        ZStack {
+            Color.black.opacity(0.4)
+                .edgesIgnoringSafeArea(.vertical)
+            
+            VStack(spacing: 15) {
+                Spacer()
+                ZStack{
+                    Image(systemName: "tag.fill")
+                        .foregroundColor(Color.blue)
+                    Image(systemName: "tag.fill")
+                    .foregroundColor(Color.white)
+                    .padding([.leading], -7)
+                    Image(systemName: "tag.fill")
+                        .foregroundColor(Color.blue)
+                        .padding([.leading], -14)
+                }
+                .font(.title)
+                
+                Text("5개 이상의 태그가 필요해요")
+                    .font(.headline)
+                    .bold()
+                Text("회원님의 취향에 꼭 맞는 제품을\n추천해드리려구요!")
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                
+                Divider()
+
+                Button(action: {
+                    self.isShowModal.toggle()   // TODO: dismiss modal
+                }) {
+                    Text("알겠어요")
+                }
+            }
+            .frame(width: 280, height: 180)
+            .padding()
+            .background(Color.white)
+            .cornerRadius(5).shadow(radius: 20)
+        }
+        
+    }
 }
