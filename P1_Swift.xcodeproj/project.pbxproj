@@ -23,8 +23,8 @@
 		D48FFAE024DA3CE300B1683A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFADF24DA3CE300B1683A /* HomeView.swift */; };
 		D48FFAE224DA6BD400B1683A /* TagSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAE124DA6BD400B1683A /* TagSelectionView.swift */; };
 		D48FFAE424DA766700B1683A /* UIColor+P1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAE324DA766700B1683A /* UIColor+P1.swift */; };
-		D48FFAE924DBE83900B1683A /* BrandSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAE824DBE83900B1683A /* BrandSearchView.swift */; };
 		D48FFAEB24DBE84600B1683A /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAEA24DBE84600B1683A /* ItemSearchView.swift */; };
+		D48FFAED24DC0E5500B1683A /* CategorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAEC24DC0E5500B1683A /* CategorySearchView.swift */; };
 		D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +47,8 @@
 		D48FFADF24DA3CE300B1683A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D48FFAE124DA6BD400B1683A /* TagSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectionView.swift; sourceTree = "<group>"; };
 		D48FFAE324DA766700B1683A /* UIColor+P1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+P1.swift"; sourceTree = "<group>"; };
-		D48FFAE824DBE83900B1683A /* BrandSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSearchView.swift; sourceTree = "<group>"; };
 		D48FFAEA24DBE84600B1683A /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
+		D48FFAEC24DC0E5500B1683A /* CategorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearchView.swift; sourceTree = "<group>"; };
 		D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,8 +164,8 @@
 		D48FFAE524DBCB5B00B1683A /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D48FFAE824DBE83900B1683A /* BrandSearchView.swift */,
 				D48FFAEA24DBE84600B1683A /* ItemSearchView.swift */,
+				D48FFAEC24DC0E5500B1683A /* CategorySearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -249,11 +249,11 @@
 				D44EEC1B24D7974400C74476 /* SceneDelegate.swift in Sources */,
 				D48FFADD24DA3BE300B1683A /* AffiliateItemRegistrationView.swift in Sources */,
 				D410DD2F24D7F8B00094A68A /* CertificationView.swift in Sources */,
-				D48FFAE924DBE83900B1683A /* BrandSearchView.swift in Sources */,
 				D410DD2724D7C46D0094A68A /* HostView.swift in Sources */,
 				D4706A5924D91E650006335F /* SignUpView.swift in Sources */,
 				D410DD2A24D7D32C0094A68A /* LoginView.swift in Sources */,
 				D48FFAE024DA3CE300B1683A /* HomeView.swift in Sources */,
+				D48FFAED24DC0E5500B1683A /* CategorySearchView.swift in Sources */,
 				D4706A5424D8F1540006335F /* LocationSettingView.swift in Sources */,
 				D44EEC1D24D7974400C74476 /* ContentView.swift in Sources */,
 				D48FFAEB24DBE84600B1683A /* ItemSearchView.swift in Sources */,
