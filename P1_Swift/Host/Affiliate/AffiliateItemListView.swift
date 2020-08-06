@@ -9,14 +9,15 @@
 import SwiftUI
 
 struct Brand {
-    var name: String = "artek"
-    var logoImage: String = "artek"
-    var items: [String] = ["listitem1", "listitem1", "listitem1", "listitem1", "listitem1", "listitem1", "listitem1"]
-    var count: Int = 7
+    var logo: String
+    var title: String
+    var subTitle: String
+    var items: [String]
+    var itemCount: Int
 }
 
 struct AffiliateItemListView: View {
-    var brand: Brand
+    var brand: Brand = Brand(logo: "artek", title: "artek", subTitle: "aretk", items: ["listitem1", "listitem1", "listitem1", "listitem1", "listitem1", "listitem1", "listitem1"], itemCount: 7 )
     @State var keyword: String = ""
     
     var body: some View {
@@ -37,20 +38,20 @@ struct AffiliateItemListView: View {
                                 .padding(.trailing)
                                 .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray, lineWidth: 0.3))
                             
-                            
                         }
                         
                         Spacer()
                             .frame(height: 20)
                         
                         HStack {
-                            Image("\(brand.logoImage)")
+                            Image("\(brand.logo)")
+
                             VStack(alignment: .leading) {
-                                Text(brand.name)
+                                Text(brand.title)
                                     .font(.body)
                                     .fontWeight(.bold)
                                 
-                                Text("제휴상품 \(brand.count)개")
+                                Text("제휴상품 \(brand.itemCount)개")
                                     .font(.caption)
                                     .fontWeight(.medium)
                                     .foregroundColor(Color.gray)
@@ -63,16 +64,16 @@ struct AffiliateItemListView: View {
                         
                         VStack(alignment: .leading) {
                             
-                            ForEach(0..<brand.count/2) { row in // create number of rows
+                            ForEach(0..<brand.itemCount / 2) { row in // create number of rows
                                 HStack {
                                     ItemTile(image: self.brand.items[row * 2])
                                     ItemTile(image: self.brand.items[row * 2 + 1])
                                 }
                             }
                             
-                            if brand.count % 2 != 0 {
+                            if brand.itemCount % 2 != 0 {
                                 HStack {
-                                    ItemTile(image: brand.items[brand.count - 1])
+                                    ItemTile(image: brand.items[brand.itemCount - 1])
                                 }
                             }
                         }
@@ -83,7 +84,7 @@ struct AffiliateItemListView: View {
                 NotAffiliatedBrand()
             }
             .navigationBarHidden(true)
-            .navigationBarTitle(Text(brand.name))
+            .navigationBarTitle(Text(brand.title))
             .edgesIgnoringSafeArea(.bottom)
             
             
@@ -93,7 +94,7 @@ struct AffiliateItemListView: View {
 
 struct AffiliateItemListView_Previews: PreviewProvider {
     static var previews: some View {
-        AffiliateItemListView(brand: Brand())
+        AffiliateItemListView()
     }
 }
 
