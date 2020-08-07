@@ -9,62 +9,87 @@
 import SwiftUI
 
 struct ItemSearchView: View {
-    @State var keyword: String = ""
+    @State var keyword: String = "안마의자"
     
-    var tags: [String] = ["주방", "자동차 용품", "아기"]
-    var categoryList: [(String, String)] = [
-        ("category1","가구"), ("category2","주방용품"), ("category3","액티비티"),
-        ("category4","가전"), ("category5","모빌리티"), ("category6","반려동물"),
-        ("category7","가전"), ("category8","주방용품"), ("category9","홈데코"),
-        ("category10","여행/캠핑"), ("category11","실버"), ("category12","홈피트니스")]
-    
-    let col: Int = 3
-    var row: Int = 4
+    var filters: [String] = ["정확도순", "인기순", "거리순", "인기 호스트순", "리워드 할인율순"]
+    var brand: Brand = Brand(logo: "Bodyfriend", title: "Bodyfriend", subTitle: "바디프렌드", items: [],  itemCount: 10)
+    var items: [Item] = [
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: [])
+    ]
+    var itemCount: Int = 10;
     
     var body: some View {
-        VStack{
-            HStack(spacing: 15) {
-                
-                TextField("", text: $keyword)
-                    .frame(height: 40)
-                    .padding(.trailing)
-                    .overlay(RoundedRectangle(cornerRadius: 40)
-                        .stroke(Color.gray, lineWidth: 0.3))
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("취소")
-                        .font(.headline)
-                        .foregroundColor(Color.black)
-                }
-            }
-            
-            VStack(alignment: .leading) {
-                Text("추천태그")
-                    .font(.caption)
-                    .foregroundColor(Color.gray)
-                    .padding(.vertical, 5)
-                HStack {
-                    ForEach(tags, id: \.self) { tag in
-                        TagItem(text: tag)
+        
+        VStack {
+            VStack {
+                HStack(spacing: 15) {
+                    
+                    TextField("", text: $keyword)
+                        .frame(height: 40)
+                        .modifier(ClearButton(text: $keyword))
+                        .padding(.horizontal)
+                        .overlay(RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color.gray, lineWidth: 0.3))
+                    
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("취소")
+                            .font(.headline)
+                            .foregroundColor(Color.black)
                     }
-                    Spacer()
                 }
-            }
-            Spacer()
-            
-            VStack{
-                ForEach(0..<row) { rIdx in
-                    HStack{
-                        ForEach(0..<self.col) { cIdx in
-                            CategoryCell(category: self.categoryList[rIdx * 3 + cIdx])
+                
+                
+                VStack(alignment: .leading) {
+                    Text("추천태그")
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
+                        .padding(.top, 10)
+                    ScrollView(.horizontal) {
+                        HStack{
+                            ForEach(filters, id: \.self) { tag in
+                                SmallRoundRectangle(text: tag)
+                            }
+                            Spacer()
                         }
                     }
                 }
             }
+            .padding(.horizontal, 20)
             Spacer()
-            Spacer()
+            
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("'\(keyword)' 관련 \(itemCount)+")
+                        .font(.headline)
+                        .padding(.bottom, 20)
+                    
+                    ForEach(0..<brand.itemCount) { idx in
+                        ItemRow(item: self.items[idx])
+                        
+                        if idx < self.brand.itemCount - 1 {
+                            Divider()
+                        }
+                    }
+                    
+                    /** List 사용 -> 상품부분만 scroll
+                     List(items) { item in
+                     ItemRow(item: item)
+                     }.padding(-10)
+                     */
+                }
+                .padding(20)
+            }
         }
-        .padding()
     }
 }
 
@@ -73,29 +98,3 @@ struct ItemSearchView_Previews: PreviewProvider {
         ItemSearchView()
     }
 }
-
-struct TagItem: View {
-    var text: String
-    
-    var body: some View {
-        Text("   \(text)   ")
-            .font(.caption)
-            .foregroundColor(Color.gray)
-            .padding(5)
-            .overlay(RoundedRectangle(cornerRadius: 40)
-                .stroke(Color.gray, lineWidth: 0.3))
-    }
-}
-
-struct CategoryCell: View {
-    var category: (image: String, label: String)
-    
-    var body: some View {
-        VStack {
-            Image(category.image)
-            Text(category.label)
-                .font(.subheadline)
-        }
-    }
-}
-
