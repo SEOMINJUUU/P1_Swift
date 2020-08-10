@@ -26,6 +26,7 @@
 		D48FFAEB24DBE84600B1683A /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAEA24DBE84600B1683A /* ItemSearchView.swift */; };
 		D48FFAED24DC0E5500B1683A /* CategorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FFAEC24DC0E5500B1683A /* CategorySearchView.swift */; };
 		D494702124DCF79700687318 /* BrandSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494702024DCF79700687318 /* BrandSearchView.swift */; };
+		D494702324E0D4DC00687318 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494702224E0D4DC00687318 /* DetailView.swift */; };
 		D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		D48FFAEA24DBE84600B1683A /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		D48FFAEC24DC0E5500B1683A /* CategorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearchView.swift; sourceTree = "<group>"; };
 		D494702024DCF79700687318 /* BrandSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSearchView.swift; sourceTree = "<group>"; };
+		D494702224E0D4DC00687318 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D4A9F76524D94D5600023DB5 /* AffiliateItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliateItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				D48FFADF24DA3CE300B1683A /* HomeView.swift */,
+				D494702224E0D4DC00687318 /* DetailView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48FFAE224DA6BD400B1683A /* TagSelectionView.swift in Sources */,
+				D494702324E0D4DC00687318 /* DetailView.swift in Sources */,
 				D44EEC1924D7974400C74476 /* AppDelegate.swift in Sources */,
 				D4A9F76624D94D5600023DB5 /* AffiliateItemListView.swift in Sources */,
 				D410DD2D24D7EAA10094A68A /* MapView.swift in Sources */,
