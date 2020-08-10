@@ -13,16 +13,16 @@ struct BrandSearchView: View {
     
     var brand: Brand = Brand(logo: "Bodyfriend", title: "Bodyfriend", subTitle: "바디프렌드", items: [],  itemCount: 10)
     var items: [Item] = [
-        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: [])
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", distance: ["평균 걸어서 3분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", distance: ["평균 걸어서 10분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", distance: ["평균 걸어서 5분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", distance: ["평균 걸어서 3분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", distance: ["평균 걸어서 10분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", distance: ["평균 걸어서 5분"], benefits: "바디프렌드 5% 할인 쿠폰")
     ]
     var itemCount: Int = 10;
     
@@ -49,7 +49,7 @@ struct BrandSearchView: View {
             
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("'\(keyword)' 관련 제품 \(itemCount)")
+                    Text("'바디프렌드' 관련 제품 \(itemCount)")
                         .font(.headline)
                         .padding(.bottom, 30)
                     
@@ -128,7 +128,7 @@ struct ItemRow: View {
                     .bold()
                     .foregroundColor(Color.init(UIColor.darkGray))
                 
-                Text(item.distance)
+                Text(item.distance[0])
                     .font(.caption)
                     .bold()
                     .foregroundColor(Color.init(UIColor.lightGray))
@@ -137,7 +137,7 @@ struct ItemRow: View {
                     
                     .font(Font.system(size: 12))
                 HStack {
-                    ForEach(item.tags, id: \.self) {tag in
+                    ForEach(item.tags ?? [], id: \.self) {tag in
                         Text("#\(tag)").font(.caption).foregroundColor(Color.gray)
                     }
                 }

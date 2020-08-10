@@ -14,16 +14,16 @@ struct ItemSearchView: View {
     var filters: [String] = ["정확도순", "인기순", "거리순", "인기 호스트순", "리워드 할인율순"]
     var brand: Brand = Brand(logo: "Bodyfriend", title: "Bodyfriend", subTitle: "바디프렌드", items: [],  itemCount: 10)
     var items: [Item] = [
-        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", owner: "", distance: "평균 걸어서 3분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", owner: "", distance: "평균 걸어서 10분", benefits: "바디프렌드 5% 할인 쿠폰", tags: []),
-        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "제품 구매 시 100,000원 할인", tags: []),
-        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", owner: "", distance: "평균 걸어서 5분", benefits: "바디프렌드 5% 할인 쿠폰", tags: [])
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", distance: ["평균 걸어서 3분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", distance: ["평균 걸어서 10분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", distance: ["평균 걸어서 5분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend1", name: "바디프렌드 엘리자베스", distance: ["평균 걸어서 3분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend2", name: "바디프렌드 엘리제", distance: ["평균 걸어서 10분"], benefits: "바디프렌드 5% 할인 쿠폰"),
+        Item(image: "bodyfriend3", name: "바디프렌드 파라오2 블랙에디션", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend4", name: "바디프렌드 팬텀2 코어", distance: ["평균 걸어서 5분"], benefits: "제품 구매 시 100,000원 할인"),
+        Item(image: "bodyfriend1", name: "바디프렌드 팰리스2 코어", distance: ["평균 걸어서 5분"], benefits: "바디프렌드 5% 할인 쿠폰")
     ]
     var itemCount: Int = 10;
     
