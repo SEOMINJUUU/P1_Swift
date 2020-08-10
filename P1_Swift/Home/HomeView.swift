@@ -14,28 +14,15 @@ struct HomeView: View {
     var page: Int = 0
     
     @State var items: [Item] = [
-        Item(image: "pickitem1", name: "웰릭스 건조기", owner: "랑랑", distance: "1분 거리", benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
-        Item(image: "pickitem2", name: "다이슨 청소기", owner: "랑랑", distance: "1분 거리", benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
-        Item(image: "pickitem3", name: "보스 E5000 스피커 세트", owner: "랑랑", distance: "1분 거리", benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"])
+        Item(image: "pickitem1", name: "웰릭스 건조기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem2", name: "다이슨 청소기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem3", name: "보스 E5000 스피커 세트", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"])
     ]
     
     var body: some View {
         NavigationView {
             VStack {
-                
-                VStack {
-                    HStack(spacing: 15){
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Image(systemName: "chevron.down.circle.fill")
-                                .font(.title)
-                                .foregroundColor(Color.init(UIColor.systemBlue))
-                        }
-                        Text(location)
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
-                    }
-                }
-                .padding()
+                HomeTitleBar(location: location)
                 
                 Image("Home_Banner")
                     .resizable()
@@ -93,11 +80,13 @@ struct Item: Identifiable {
     var image: String
     var name: String
     
-    var owner: String
-    var distance: String
+    var owner: [String]?
+    var distance: [String]
     var benefits: String
     
-    var tags: [String]
+    var tags: [String]?
+    var host: Int?
+    var guest: Int?
 }
 
 struct PickedItemRow: View {
@@ -113,17 +102,17 @@ struct PickedItemRow: View {
                     .bold()
                     .foregroundColor(Color.init(UIColor.darkGray))
                 HStack(spacing: 7) {
-                    Text(item.owner)
+                    Text(item.owner?[0] ?? "")
                         .bold()
                         .foregroundColor(Color.orange)
-                    Text(item.distance)
+                    Text(item.distance[0])
                         .bold()
                     Text(item.benefits)
                         .foregroundColor(Color.blue)
                 }
                 .font(Font.system(size: 12))
                 HStack {
-                    ForEach(item.tags, id: \.self) {tag in
+                    ForEach(item.tags ?? [], id: \.self) {tag in
                         Text("#\(tag)").font(.caption).foregroundColor(Color.gray)
                     }
                     
@@ -135,5 +124,25 @@ struct PickedItemRow: View {
                 .padding(.top, 10)
                 .foregroundColor(Color.gray)
         }
+    }
+}
+
+struct HomeTitleBar: View {
+    var location: String
+    
+    var body: some View {
+        VStack {
+            HStack(spacing: 15){
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Image(systemName: "chevron.down.circle.fill")
+                        .font(.title)
+                        .foregroundColor(Color.init(UIColor.systemBlue))
+                }
+                Text(location)
+                Spacer()
+                Image(systemName: "magnifyingglass")
+            }
+        }
+        .padding()
     }
 }
