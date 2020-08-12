@@ -25,6 +25,7 @@ struct DetailView: View {
         VStack {
             
             HomeTitleBar(location: location)
+            Spacer()
             ScrollView {
                 ItemDetailRow(item: item)
                 
@@ -51,7 +52,7 @@ struct DetailView: View {
                 .padding()
                 
                 Spacer()
-
+                
                 Rectangle()
                     .frame(height: 20)
                     .foregroundColor(Color.init(UIColor.systemGray5))
@@ -77,8 +78,7 @@ struct DetailView: View {
                                     .bold()
                                     .foregroundColor(Color.blue)
                             }
-                                .frame(maxWidth: 170, maxHeight: 170)
-
+                            .frame(maxWidth: 170, maxHeight: 170)
                             .padding()
                             
                         }.padding()

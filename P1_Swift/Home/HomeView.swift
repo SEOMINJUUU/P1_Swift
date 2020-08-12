@@ -16,6 +16,12 @@ struct HomeView: View {
     @State var items: [Item] = [
         Item(image: "pickitem1", name: "웰릭스 건조기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
         Item(image: "pickitem2", name: "다이슨 청소기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem3", name: "보스 E5000 스피커 세트", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem1", name: "웰릭스 건조기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem2", name: "다이슨 청소기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem3", name: "보스 E5000 스피커 세트", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem1", name: "웰릭스 건조기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
+        Item(image: "pickitem2", name: "다이슨 청소기", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"]),
         Item(image: "pickitem3", name: "보스 E5000 스피커 세트", owner: ["랑랑"], distance: ["1분 거리"], benefits: "3,000원 / 5만원 LG쿠폰", tags: ["소음들어보세요","실제세탁보여드림"])
     ]
     
@@ -33,33 +39,21 @@ struct HomeView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    Text("오늘의 Bodon 픽!")
+                    Text("오늘의 Bodon 픽!")    // list section title
                         
                         .fontWeight(.semibold)
                         .padding(.horizontal, 20)
-                        
+                    
                     VStack{
-                        PickedItemRow(item: items[page * 3])
-                        Divider()
-                        PickedItemRow(item: items[page * 3 + 1])
-                        Divider()
-                        PickedItemRow(item: items[page * 3 + 2])
-                        
-//                        ForEach(0..<3) { idx in
-//                            ItemRow(item: self.items[idx])
-//                            if idx < 2 {
-//                                Divider()
-//                            }
-//                        }
+                        NavigationLink(destination: DetailView()) {
+                            List(items) { item in
+                                ItemRow(item:item)
+                            }
+                        }.buttonStyle(PlainButtonStyle())
                     }
                     .padding(.vertical, 10)
                     
                 }
-                HStack {
-                    Image(systemName: "circle.fill")
-                    Image(systemName: "circle.fill").foregroundColor(Color.gray)
-                    Image(systemName: "circle.fill").foregroundColor(Color.gray)
-                }.font(.system(size: 6))
                 Spacer()
             }
             .navigationBarHidden(true)
@@ -93,6 +87,7 @@ struct PickedItemRow: View {
     var item: Item
     
     var body: some View {
+        
         HStack(alignment: .center) {
             Image(item.image)
             
@@ -124,23 +119,35 @@ struct PickedItemRow: View {
                 .padding(.top, 10)
                 .foregroundColor(Color.gray)
         }
+        
     }
 }
 
 struct HomeTitleBar: View {
+    @State private var isShowModal: Bool = false
+    
     var location: String
     
     var body: some View {
         VStack {
             HStack(spacing: 15){
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {}) {
                     Image(systemName: "chevron.down.circle.fill")
                         .font(.title)
                         .foregroundColor(Color.init(UIColor.systemBlue))
                 }
                 Text(location)
                 Spacer()
-                Image(systemName: "magnifyingglass")
+                
+                Button(action: {
+                    self.isShowModal = true
+                }) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(Color.black)
+                }
+                .sheet(isPresented: self.$isShowModal) {
+                    CategorySearchView()
+                }
             }
         }
         .padding()
