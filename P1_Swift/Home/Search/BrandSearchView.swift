@@ -128,14 +128,18 @@ struct ItemRow: View {
                     .bold()
                     .foregroundColor(Color.init(UIColor.darkGray))
                 
-                Text(item.distance[0])
+                item.distance.map { _ in
+                    Text(item.distance?[0] ?? "")
                     .font(.caption)
                     .bold()
                     .foregroundColor(Color.init(UIColor.lightGray))
-                Text(item.benefits)
+                }
+                
+                item.benefits.map { benefit in
+                Text(benefit)
                     .foregroundColor(Color.blue)
-                    
                     .font(Font.system(size: 12))
+                }
                 HStack {
                     ForEach(item.tags ?? [], id: \.self) {tag in
                         Text("#\(tag)").font(.caption).foregroundColor(Color.gray)
