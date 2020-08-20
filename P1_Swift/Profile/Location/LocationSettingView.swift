@@ -13,38 +13,35 @@ struct LocationSettingView: View {
     var near: Int = 1
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                HStack(alignment: .bottom) {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("문정동").foregroundColor(Color.white)
-                    }
-                    .buttonStyle(SelectedButtonStyle())
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("상암동")
-                    }
-                    .buttonStyle(UnselectedButtonStyle())
+        VStack {
+            Spacer()
+            HStack(alignment: .bottom) {
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text("문정동").foregroundColor(Color.white)
                 }
+                .buttonStyle(SelectedButtonStyle())
                 
-                Spacer()
-                Text("근처 동네 \(near)개")
-                Slider(value: $value)
-                    .padding(.horizontal, 40)
-                
-                Spacer()
-                Spacer()
-                
-                Image("buildings")
-                
-                
-            }.navigationBarTitle(Text("내 동네 설정하기"), displayMode: .inline)
-                
-                .edgesIgnoringSafeArea(.bottom)
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text("상암동")
+                }
+                .buttonStyle(UnselectedButtonStyle())
+            }
             
+            Spacer()
+            Text("근처 동네 \(near)개")
+            Slider(value: $value)
+                .padding(.horizontal, 40)
             
-        }
+            Spacer()
+            Spacer()
+            
+            Image("buildings")
+            
+
+        }.navigationBarTitle(Text("내 동네 설정하기"), displayMode: .inline)
+//            .navigationBarBackButtonHidden(true)  // TODO: custom back button or close button
+            .edgesIgnoringSafeArea(.bottom)
+        
     }
 }
 
@@ -62,7 +59,7 @@ struct SelectedButtonStyle: ButtonStyle {
             .frame(width: 120, height: 10)
             .padding(20)
             .foregroundColor(Color.white)
-            .background(Color.blue)
+            .background(Color("mainColor"))
             .cornerRadius(10)
     }
 }
