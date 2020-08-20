@@ -69,7 +69,6 @@ struct CategorySearchView: View {
                 Spacer()
                 Spacer()
             }
-                
             .navigationBarHidden(true)
             .navigationBarTitle(Text("검색"))
             .padding()
