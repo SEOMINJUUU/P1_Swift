@@ -11,22 +11,27 @@ import SwiftUI
 struct HostView: View {
     //    @State private var isShowModal: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    var brands: [String] = ["Apple", "Balmuda", "Bodyfriend", "Cartier", "dyson", "Wesco", "vitra."]
+    
+    var brandsKor: [String] = ["애플","버뮤다","바디프렌드","까르띠에","다이슨","웨스코","비트라"]
+    var brandsEng: [String] = ["Apple","Balmuda","Bodyfriend","Cartier","dyson","Wesco","vitra."]
+    var brandsCount: Int = 7
     
     var body: some View {
         
         VStack {
             NavigationView {
                 List {
-                    
-                    ForEach(brands, id: \.self) { brand in
+                    ForEach(0..<brandsCount) { idx in
                         HStack(spacing: 10) {
                             
-                            Image(brand)
+                            Image(self.brandsEng[idx])
                                 .frame(width: 115.0, height: 50)
-                            
-                            Text(brand)
-                        }
+                            VStack(alignment: .leading) {
+                                Text(self.brandsKor[idx])
+                                    .foregroundColor(Color.gray)
+                                Text(self.brandsEng[idx])
+                            }.font(.footnote)
+                        }.padding()
                     }
                     
                 }
@@ -42,7 +47,7 @@ struct HostView: View {
                 NotAffiliatedBrand()
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
+//        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
@@ -62,8 +67,17 @@ struct NotAffiliatedBrand: View {
             Text("찾으시는 브랜드가 없으신가요?\n")
                 .foregroundColor(Color.white)
                 .frame(maxWidth: .infinity, minHeight: 80)
-                .background(Color.black)
+                .background(Color.blue)
+                .clipShape(TopRounded())
+//                .cornerRadius(radius: 20)
         }
         
+    }
+}
+
+struct TopRounded: Shape {
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 25, height: 25))
+    return Path(path.cgPath)
     }
 }
