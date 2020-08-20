@@ -9,14 +9,20 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var isShowModal: Bool = true
+    
     var body: some View {
         NavigationView {
-            NavigationLink(destination: LocationSettingView()) {
-                Text("내 동네 설정")
+            List {
+                NavigationLink(destination: LocationSettingView()) {
+                    Text("내 동네 설정")
+                }
+                NavigationLink(destination: CertificationView()) {
+                    Text("동네 인증하기")
+                }
             }
-            NavigationLink(destination: CertificationView()) {
-                Text("동네 인증하기")
-            }
+        } .sheet(isPresented: self.$isShowModal) {
+            LoginView()
         }
     }
 }
