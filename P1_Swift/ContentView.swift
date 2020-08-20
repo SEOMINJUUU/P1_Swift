@@ -15,42 +15,42 @@ struct ContentView: View {
            TabView(selection: $selection){
                HomeView()
                    .tabItem {
-                       VStack {
+                    VStack {
                            Image(systemName: "house.fill")
-                           Text("Home")
+//                           Text("Home")
                        }
                    }
                    .tag(0)
                DetailView() // TODO: change rewords view
                    .tabItem {
                        VStack {
-                           Image(systemName: "bag.fill")
-                           Text("Rewards")
+                           Image(systemName: "star")
+//                           Text("Rewards")
                        }
                    }
                    .tag(1)
                HostView()
                    .tabItem {
                        VStack {
-                           Image(systemName: "camera.on.rectangle.fill")
-                           Text("Host")
+                           Image(systemName: "plus.circle")
+//                           Text("Host")
                        }
                    }
                    .tag(2)
-               CategorySearchView()
+               ChatView()
                    .tabItem {
                        VStack {
-                           Image(systemName: "message.fill")
-                           Text("Chats")
+                           Image(systemName: "message")
+//                           Text("Chats")
                        }
                    }
                    .tag(3)
                ProfileView()
-               LoginView()
+//                LoginView()
                    .tabItem {
                        VStack {
-                           Image(systemName: "person.circle.fill")
-                           Text("Profile")
+                           Image(systemName: "person")
+//                           Text("Profile")
                        }
                    }
                    .tag(4)
