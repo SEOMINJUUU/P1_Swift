@@ -17,7 +17,7 @@ struct LoginView: View {
         VStack {
             HStack {
                 Button(action: {
-                    
+                    self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "xmark")
                         .font(Font.title.weight(.regular))
@@ -62,6 +62,7 @@ struct LoginView: View {
                         Text("이미 계정이 있으신가요? 로그인 하기")
                             .font(.caption)
                             .underline()
+                            .foregroundColor(Color("mainColor"))
                     }
                     
                     Spacer()
@@ -116,7 +117,7 @@ struct LoginView: View {
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 45)
-                .background(Color.blue)
+                .background(Color("mainColor"))
                 .foregroundColor(Color.white)
                 .cornerRadius(5)
                 .padding(.vertical, 5)
@@ -135,11 +136,11 @@ struct LoginView_Previews: PreviewProvider {
 struct EmptyBlueButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.subheadline).foregroundColor(Color.blue)
+            .font(.subheadline).foregroundColor(Color("mainColor"))
             .frame(maxWidth: .infinity, minHeight: 45)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.blue, lineWidth: 1)
+                    .stroke(Color("mainColor"), lineWidth: 1)
         )
             .padding(.vertical, 10)
     }
