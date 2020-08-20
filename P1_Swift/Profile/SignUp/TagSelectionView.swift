@@ -40,7 +40,7 @@ struct TagSelectionView: View {
                             .foregroundColor(Color.init(UIColor.systemGray5))
                         Rectangle()
                             .frame(width: 50, height: 3)
-                            .foregroundColor(Color.init(UIColor.systemBlue))
+                            .foregroundColor(Color("mainColor"))
                     }.padding(.vertical)
                     
                     
@@ -106,7 +106,7 @@ struct TagCapsuleWithIcon: View {   // TODO: selected tagCapsule color
         HStack {
             
             Image(systemName: tag.icon)
-                .foregroundColor(Color.init(UIColor.systemBlue))
+                .foregroundColor(Color("mainColor"))
                 .padding(.leading, 10)
             
             Spacer()
@@ -136,12 +136,12 @@ struct CustomModalPopups: View {
                 Spacer()
                 ZStack{
                     Image(systemName: "tag.fill")
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("mainColor"))
                     Image(systemName: "tag.fill")
                     .foregroundColor(Color.white)
                     .padding([.leading], -7)
                     Image(systemName: "tag.fill")
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color("mainColor"))
                         .padding([.leading], -14)
                 }
                 .font(.title)
@@ -159,6 +159,7 @@ struct CustomModalPopups: View {
                     self.isShowModal.toggle()   // TODO: dismiss modal
                 }) {
                     Text("알겠어요")
+                    .foregroundColor(Color("mainColor"))
                 }
             }
             .frame(width: 280, height: 180)
