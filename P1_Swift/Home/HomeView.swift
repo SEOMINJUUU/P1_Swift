@@ -31,7 +31,7 @@ struct HomeView: View {
             VStack {
                 HomeTitleBar(location: location)
                 
-                Image("Home_Banner")
+                Image("home_banner")
                     .resizable()
                     .scaledToFit()
                 
